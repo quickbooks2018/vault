@@ -141,6 +141,6 @@ helm search repo hashicorp/vault --versions
 helm show values hashicorp/vault --version 0.25.0
 helm show values hashicorp/vault --version 0.25.0 > vault-values.yaml
 helm repo update
-helm upgrade --install vault hashicorp/vault --set='ui.enabled=true' --namespace vault --create-namespace --version 0.25.0 -f vault-values.yaml --wait
+helm upgrade --install vault hashicorp/vault --set='ui.enabled=true' --set "server.ha.enabled=true" --namespace vault --create-namespace --version 0.25.0 -f vault-values.yaml --wait
 ```
 
