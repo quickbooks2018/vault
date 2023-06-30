@@ -484,8 +484,7 @@ kubectl -n vault exec -it vault-1 -- vault status
 kubectl -n vault exec -it vault-2 -- vault status
 ```
 
-### Note: We can also perform auto unseal in kind, for Auto Unseal , we need to enable Enable Kubernetes Authentication
-- Note: vault login requires root token
+### Note: Below command configuring the Kubernetes authentication method in Vault. It does not unseal the Vault nor does it configure Vault for auto-unsealing
 
 - Note: Below process is where, kubernetes can allow kubernetes injector can access the vault
 ```bash
@@ -542,4 +541,13 @@ vault kv put secret/basic-secret/helloworld username=dbuser password=sUp3rS3cUr3
 kubectl create ns example-app
 kubectl -n example-app apply -f ./app/deployment.yaml
 kubectl -n example-app get pods
+```
+
+- Vault login
+- Note: vault login requires root token, but vault should be unsealed first
+```bash
+kubectl -n vault exec -it vault-0 -- sh
+vault operator unseal
+vault login
+vault auth list
 ```
