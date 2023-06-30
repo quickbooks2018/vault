@@ -427,7 +427,7 @@ kubectl -n vault exec -it vault-0 -- vault status
 
 - Note: We have to unseal every pod, so far we have done unsealing of pod vault-0, now we will unseal vault-1 and vault-2
 
-```bash
+
 - Note: Do provide 3 keys with repeat steps until sealed is false
 - kubectl -n vault exec -it vault-0 -- vault status
 ```bash
