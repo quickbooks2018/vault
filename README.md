@@ -365,7 +365,7 @@ kubectl -n vault create secret tls tls-server \
 
 - https://github.com/hashicorp/vault-helm
 
-- Vault by default is not enabled.
+- Note: For vault, we are using custom vault values file which is vault-values.yaml
 
 ```bash
 helm repo ls
@@ -375,9 +375,18 @@ helm search repo hashicorp/vault --versions
 helm show values hashicorp/vault --version 0.25.0
 # helm show values hashicorp/vault --version 0.25.0 > vault-values.yaml
 helm repo update
-helm upgrade --install vault hashicorp/vault --set='ui.enabled=true' --set 'server.ha.enabled=true' --set 'server.ha.replicas=3' --namespace vault --create-namespace --version 0.25.0 -f vault-values.yaml --wait
 ```
-
+```bash
+helm upgrade --install vault hashicorp/vault \
+  --set='ui.enabled=true' \
+  --set='server.ha.enabled=true' \
+  --set='server.ha.replicas=3' \
+  --namespace vault \
+  --create-namespace \
+  --version 0.25.0 \
+  -f vault-values.yaml \
+  --wait
+```
 - Vault Commands
 
 ```bash
