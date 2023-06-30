@@ -475,7 +475,7 @@ vault status
 kubectl -n vault exec -it vault-2 -- vault status
 ```
 
-### Note: Above we are performing manual unsealing, now we will automate this process using aws kms
+### Note: Above we are performing manual unsealing, we can automate this process using aws kms
 
 - vault status
 ```bash
