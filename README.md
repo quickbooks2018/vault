@@ -350,6 +350,17 @@ helm upgrade --install consul --namespace vault hashicorp/consul --version 1.2.0
 -f consul-values.yaml --wait
 ```
 
+- Consul Yaml Template
+```bash
+helm template consul --namespace vault hashicorp/consul --version 1.2.0 \
+--set='client.enabled=true' \
+--set='server.replicas=1' \
+--set='server.disruptionBudget.maxUnavailable=1' \
+--set='server.bootstrapExpect=1' \
+--set='server.storage=50Gi' \
+-f consul-values.yaml --wait > consul-yaml-template.yaml
+```
+
 ### TLS End to End Encryption
 - Create the TLS secret
 ```bash
@@ -386,6 +397,18 @@ helm upgrade --install vault hashicorp/vault \
   --version 0.25.0 \
   -f vault-values.yaml \
   --wait
+```
+- Vault yaml template
+```bash
+helm template vault hashicorp/vault \
+  --set='ui.enabled=true' \
+  --set='server.ha.enabled=true' \
+  --set='server.ha.replicas=3' \
+  --namespace vault \
+  --create-namespace \
+  --version 0.25.0 \
+  -f vault-values.yaml \
+  --wait > vault-yaml-template.yaml
 ```
 - Vault Commands
 
