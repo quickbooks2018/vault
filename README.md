@@ -412,7 +412,74 @@ helm template vault hashicorp/vault \
 ```
 - Vault Commands
 
+- vault-0
 ```bash
 kubectl -n vault get pods
+
 kubectl -n vault exec -it vault-0 -- vault operator init
+kubectl -n vault exec -it vault-0 -- sh
+kubectl -n vault delete pod/vault-0
+kubectl -n vault exec -it vault-0 -- sh
+vault operator unseal
+vault status
+kubectl -n vault exec -it vault-0 -- vault status
+```
+
+- Note: We have to unseal every pod, so far we have done unsealing of pod vault-0, now we will unseal vault-1 and vault-2
+
+```bash
+- Note: Do provide 3 keys with repeat steps until sealed is false
+- kubectl -n vault exec -it vault-0 -- vault status
+```bash
+  Key             Value
+---             -----
+Seal Type       shamir
+Initialized     true
+Sealed          false
+Total Shares    5
+Threshold       3
+Version         1.13.3
+Build Date      2023-06-06T18:12:37Z
+Storage Type    consul
+Cluster Name    vault-cluster-a4bd8c4f
+Cluster ID      c3f29283-15f3-cb00-1d7a-446714a99582
+HA Enabled      true
+HA Cluster      https://vault-0.vault-internal:8201
+HA Mode         active
+Active Since    2023-06-30T05:01:29.339712628Z
+```
+
+- vault-1
+```bash
+kubectl -n vault get pods
+
+kubectl -n vault exec -it vault-1 -- vault operator init
+kubectl -n vault exec -it vault-1 -- sh
+kubectl -n vault delete pod/vault-1
+kubectl -n vault exec -it vault-1 -- sh
+vault operator unseal
+vault status
+kubectl -n vault exec -it vault-1 -- vault status
+```
+
+- vault-2
+```bash
+kubectl -n vault get pods
+
+kubectl -n vault exec -it vault-2 -- vault operator init
+kubectl -n vault exec -it vault-2 -- sh
+kubectl -n vault delete pod/vault-2
+kubectl -n vault exec -it vault-2 -- sh
+vault operator unseal
+vault status
+kubectl -n vault exec -it vault-2 -- vault status
+```
+
+### Note: Above we are performing manual unsealing, now we will automate this process using aws kms
+
+- vault status
+```bash
+kubectl -n vault exec -it vault-0 -- vault status
+kubectl -n vault exec -it vault-1 -- vault status
+kubectl -n vault exec -it vault-2 -- vault status
 ```
