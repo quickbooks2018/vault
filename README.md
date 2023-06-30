@@ -499,7 +499,6 @@ token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" 
 kubernetes_host=https://${KUBERNETES_PORT_443_TCP_ADDR}:443 \
 kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
 issuer="https://kubernetes.default.svc.cluster.local"
-exit
 ```
 
 ### Application to Access Secrets in Vault, we need to setup the policy in vault, in order inject secrets in application pod
