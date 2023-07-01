@@ -5,11 +5,20 @@
 kubectl -n vault exec -it vault-0 -- sh
 vault status
 vault login
-vvault auth list 
+vault auth list 
 vault auth list --detailed
 ```
 
+- secret_policy
+```bash
+path "kv/apps/env/dev/*" {
+  capabilities = ["create", "read", "update", "list"]
+}
 
+path "kv/*" {
+  capabilities = ["list","read"]
+}
+```
 
 ### Userpass Auth
 
@@ -17,6 +26,8 @@ vault auth list --detailed
 kubectl -n vault exec -it vault-0 -- sh
 vault status
 vault login
+vault auth list 
+vault auth list --detailed
 vault auth enable userpass
 
 vault write --help
