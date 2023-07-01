@@ -341,7 +341,7 @@ helm show values hashicorp/consul --version 1.2.0 > consul-values.yaml
 helm repo update
 ```
 ```bash
-helm upgrade --install consul --namespace vault hashicorp/consul --version 1.2.0 \
+helm upgrade --install consul --namespace vault --create-namespace hashicorp/consul --version 1.2.0 \
 --set='client.enabled=true' \
 --set='server.replicas=1' \
 --set='server.disruptionBudget.maxUnavailable=1' \
