@@ -89,8 +89,8 @@ nodes:
       kubeletExtraArgs:
         node-labels: "ingress-ready=true"
         eviction-hard: "memory.available<5%"
-        system-reserved: "memory=1Gi"
-        kube-reserved: "memory=1Gi"
+        system-reserved: "memory=2Gi"
+        kube-reserved: "memory=2Gi"
   extraPortMappings:
   - containerPort: 80
     hostPort: 80
@@ -105,8 +105,8 @@ nodes:
     nodeRegistration:
       kubeletExtraArgs:
         eviction-hard: "memory.available<5%"
-        system-reserved: "memory=1Gi"
-        kube-reserved: "memory=1Gi"
+        system-reserved: "memory=2Gi"
+        kube-reserved: "memory=2Gi"
 - role: worker
   kubeadmConfigPatches:
   - |
@@ -114,8 +114,8 @@ nodes:
     nodeRegistration:
       kubeletExtraArgs:
         eviction-hard: "memory.available<5%"
-        system-reserved: "memory=1Gi"
-        kube-reserved: "memory=1Gi"
+        system-reserved: "memory=2Gi"
+        kube-reserved: "memory=2Gi"
 - role: worker
   kubeadmConfigPatches:
   - |
@@ -123,8 +123,8 @@ nodes:
     nodeRegistration:
       kubeletExtraArgs:
         eviction-hard: "memory.available<5%"
-        system-reserved: "memory=1Gi"
-        kube-reserved: "memory=1Gi"        
+        system-reserved: "memory=2Gi"
+        kube-reserved: "memory=2Gi"        
 EOF
   
  kind create --name cloudgeeks cluster --config kind-config.yaml --image kindest/node:v1.25.11
