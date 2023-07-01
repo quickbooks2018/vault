@@ -558,7 +558,7 @@ vault auth list
 - unseal script
 ```bash
 #!/bin/bash
-
+set -x
 # First delete the pods
 kubectl -n vault delete pods vault-0 vault-1 vault-2
 
