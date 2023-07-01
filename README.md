@@ -412,11 +412,14 @@ helm template vault hashicorp/vault \
 ```
 - Vault Commands
 
-- vault-0
+### Initialize Vault
 ```bash
 kubectl -n vault get pods
-
 kubectl -n vault exec -it vault-0 -- vault operator init
+```
+
+- vault-0
+```bash
 kubectl -n vault exec -it vault-0 -- sh
 kubectl -n vault delete pod/vault-0
 kubectl -n vault exec -it vault-0 -- sh
