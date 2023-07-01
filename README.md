@@ -588,6 +588,5 @@ for pod in "${VAULT_PODS[@]}"; do
         kubectl -n $NAMESPACE exec -it $pod -- vault operator unseal $key
     done
 done
-
 # End
 ```
