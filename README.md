@@ -569,11 +569,11 @@ sleep 9
 
 # Define the unseal keys
 UNSEAL_KEYS=(
-"KHCgv3D5cr2VnLzxhZOjp8uxtf4ISRfMizdozPIKIWS5"
-"AeGn2Z6auwf5/5uJbTeHHsLqIoarzOlag8DcmwKou5oc"
-"5h3CQ0egZiN3EyQSkR7e1mTA7dS1zQZ4mKSsnlHVQl0Q"
-"kSO661ROhX81LW3uWhSUimK++4YpYeCHb8TM16edVbcm"
-"NxU+J/Q7fHjnWcLrHC64gEZi8+lUV6jDG+E2esXg4fHY"
+'KHCgv3D5cr2VnLzxhZOjp8uxtf4ISRfMizdozPIKIWS5'
+'AeGn2Z6auwf5/5uJbTeHHsLqIoarzOlag8DcmwKou5oc'
+'5h3CQ0egZiN3EyQSkR7e1mTA7dS1zQZ4mKSsnlHVQl0Q'
+'kSO661ROhX81LW3uWhSUimK++4YpYeCHb8TM16edVbcm'
+'NxU+J/Q7fHjnWcLrHC64gEZi8+lUV6jDG+E2esXg4fHY'
 )
 
 # Define the vault pods
