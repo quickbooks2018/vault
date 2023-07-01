@@ -562,18 +562,18 @@ vault auth list
 # First delete the pods
 # kubectl -n vault delete pods vault-0 vault-1 vault-2
 
-root_token='hvs.UGfPf1bFDaP8jxYnlhL2lfeh'
+root_token='hvs.dH1DyIFoeLsbLOcUUDTf0m4A'
 
 
 sleep 6
 
 # Define the unseal keys
 UNSEAL_KEYS=(
-"/OOTbeZP0SLco6bopWzBHYNdD/26JqxQ7XeFDdO0e3t6"
-"+D93zI//7kKP9Yh4IDRyRQFkStFHvOygLv6nISCUgjwT"
-"GPRBp+83M+EoikeHpvO5pbXRVf/M5yJcquspe91PSIl3"
-"aKHyZbRcPe5LhURkzTzenuWc6MgwqheOnASg7oSNNCg5"
-"CnZDgIaEXJ9qU7KeExofc9xQcbck9QlfYq+vZ6WR4YXC"
+"KHCgv3D5cr2VnLzxhZOjp8uxtf4ISRfMizdozPIKIWS5"
+"AeGn2Z6auwf5/5uJbTeHHsLqIoarzOlag8DcmwKou5oc"
+"5h3CQ0egZiN3EyQSkR7e1mTA7dS1zQZ4mKSsnlHVQl0Q"
+"kSO661ROhX81LW3uWhSUimK++4YpYeCHb8TM16edVbcm"
+"NxU+J/Q7fHjnWcLrHC64gEZi8+lUV6jDG+E2esXg4fHY"
 )
 
 # Define the vault pods
