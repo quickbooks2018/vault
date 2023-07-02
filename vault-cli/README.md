@@ -9,8 +9,13 @@ vault auth list
 vault auth list --detailed
 ```
 
+- Vault policy
+```bash
+vault policy --help
+```
 - dev_secret_policy
 - Note: "In kv "metadata" "data" "delete" are options which must be added"
+- Note: "You can also provide access to option name undelete just like undo, so they can undo any delete operation"
 ```bash
 path "kv/metadata/*" {
   capabilities = ["list"]
