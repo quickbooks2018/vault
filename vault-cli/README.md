@@ -10,18 +10,27 @@ vault auth list --detailed
 ```
 
 - dev_secret_policy
-- Note: "kv is a path best is to set this as dev"
+- Note: "In kv "metadata" "data" "delete" are options which must be added"
 ```bash
-path "kv/*" {
+path "kv/metadata/*" {
+  capabilities = ["list""read"]
+}
+
+path "kv/data/apps/env/dev" {
   capabilities = ["list","read","update"]
 }
 ```
 
 - prod_secret_policy
 ```bash
-path "prod/*" {
-  capabilities = ["list","read","update"]
+path "prod/metadata/*" {
+  capabilities = ["list","read"]
 }
+  
+path "prod/data/apps/env" {
+  capabilities = ["list","read","update"]
+}  
+
 ```
 
 ### Userpass Auth
