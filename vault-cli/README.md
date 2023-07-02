@@ -12,23 +12,15 @@ vault auth list --detailed
 - dev_secret_policy
 - Note: "kv is a path best is to set this as dev"
 ```bash
-path "kv/apps/env/dev/*" {
-  capabilities = ["read", "update", "list"]
-}
-
 path "kv/*" {
-  capabilities = ["list","read"]
+  capabilities = ["list","read","update"]
 }
 ```
 
 - prod_secret_policy
 ```bash
-path "prod/apps/env/*" {
-  capabilities = ["read", "update", "list"]
-}
-
 path "prod/*" {
-  capabilities = ["list","read"]
+  capabilities = ["list","read","update"]
 }
 ```
 
