@@ -13,22 +13,30 @@ vault auth list --detailed
 - Note: "In kv "metadata" "data" "delete" are options which must be added"
 ```bash
 path "kv/metadata/*" {
-  capabilities = ["list""read"]
+  capabilities = ["list"]
 }
 
-path "kv/data/apps/env/dev" {
-  capabilities = ["list","read","update"]
+path "kv/metadata/apps/env/dev/*" {
+  capabilities = ["list", "read"]
+}
+
+path "kv/data/apps/env/dev/*" {
+  capabilities = ["list", "read", "update"]
 }
 ```
 
 - prod_secret_policy
 ```bash
-path "prod/metadata/*" {
-  capabilities = ["list","read"]
+path "kv/metadata/*" {
+  capabilities = ["list"]
+}
+
+path "prod/metadata/apps/env/*" {
+  capabilities = ["list", "read"]
 }
   
-path "prod/data/apps/env" {
-  capabilities = ["list","read","update"]
+path "prod/data/apps/env/*" {
+  capabilities = ["list", "read", "update"]
 }  
 
 ```
