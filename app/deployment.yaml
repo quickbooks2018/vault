@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example-app
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: basic-secret
+  namespace: example-app
   labels:
     app: basic-secret
 spec:
@@ -14,12 +20,12 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/tls-skip-verify: "true"
-        vault.hashicorp.com/agent-inject-secret-helloworld: "secret/basic-secret/helloworld"
+        vault.hashicorp.com/agent-inject-secret-helloworld: "secret/data/basic-secret/helloworld"
         vault.hashicorp.com/agent-inject-template-helloworld: |
-          {{- with secret "secret/basic-secret/helloworld" -}}
+          {{- with secret "secret/data/basic-secret/helloworld" -}}
           {
-            "username" : "{{ .Data.username }}",
-            "password" : "{{ .Data.password }}"
+            "username" : "{{ .Data.data.username }}",
+            "password" : "{{ .Data.data.password }}"
           }
           {{- end }}
         vault.hashicorp.com/role: "basic-secret-role"
@@ -29,11 +35,12 @@ spec:
       serviceAccountName: basic-secret
       containers:
       - name: app
-        image: jweissig/app:0.0.1
+        image: nginx:1.7.9
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: basic-secret
+  namespace: example-app
   labels:
     app: basic-secret
