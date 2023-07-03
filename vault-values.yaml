@@ -30,7 +30,7 @@ server:
       memory: 50Mi
       cpu: 500m
     limits:
-      memory: 16Gi
+      memory: 8Gi
       cpu: 2000m
 
   # For HA configuration and because we need to manually init the vault,

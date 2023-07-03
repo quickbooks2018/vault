@@ -31,6 +31,11 @@ vault write auth/kubernetes/role/basic-secret-role \
    ttl=1h
 ```
 
+- vault 
+```bash
+vault read auth/kubernetes/config
+```
+
 - The above maps our Kubernetes service account, used by our pod, to a policy. Now lets create the policy to map our service account to a bunch of secrets.
 
 ```bash
