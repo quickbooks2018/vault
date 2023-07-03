@@ -503,6 +503,12 @@ kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
 issuer="https://kubernetes.default.svc.cluster.local"
 ```
 
+- Error: failed to login add (ca.pem) to config
+```bash
+kubernetes_ca_cert=ca.pem
+upload ca.pem to vault pod from ui 
+```
+
 ### Application to Access Secrets in Vault, we need to setup the policy in vault, in order inject secrets in application pod
 
 - Basic Secret Injection
@@ -594,3 +600,6 @@ for pod in "${VAULT_PODS[@]}"; do
 done
 # End
 ```
+
+- issues
+- https://github.com/hashicorp/vault/issues/19952
