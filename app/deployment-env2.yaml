@@ -48,7 +48,7 @@ spec:
             sleep 3
             echo ">> creds from vault"
             if [ -f /application/secrets/data/secrets.env ]; then
-              cat /application/secrets/data/secrets.env >> ~/.profile
-              . ~/.profile
+              cat /application/secrets/data/secrets.env
+              . /application/secrets/data/secrets.env
             fi
             exec nginx -g 'daemon off;'

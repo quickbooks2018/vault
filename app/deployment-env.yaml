@@ -31,8 +31,8 @@ spec:
         vault.hashicorp.com/agent-inject-secret-helloworld: "secret/basic-secret/helloworld"
         vault.hashicorp.com/agent-inject-template-helloworld: |
           {{ with secret "secret/data/basic-secret/helloworld" -}}
-          USERNAME="{{ .Data.data.username }}"
-          PASSWORD="{{ .Data.data.password }}"
+          export USERNAME="{{ .Data.data.username }}"
+          export PASSWORD="{{ .Data.data.password }}"
           {{- end }}
         vault.hashicorp.com/role: "basic-secret-role"
       labels:
@@ -42,4 +42,13 @@ spec:
       containers:
       - name: app
         image: nginx:1.7.9
-        command: ["/bin/sh", "-c", "cat /vault/secrets/helloworld >> ~/.profile; . ~/.profile; exec nginx -g 'daemon off;'"]
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            sleep 3
+            echo ">> creds from vault"
+            if [ -f /vault/secrets/helloworld ]; then
+              cat /vault/secrets/helloworld
+              . /vault/secrets/helloworld
+            fi
+            exec nginx -g 'daemon off;'
