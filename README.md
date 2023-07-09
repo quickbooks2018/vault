@@ -1,5 +1,8 @@
 # Hashicorp Vault
 
+- Secure EC2 Instance Connect & Instance Tunnel https://www.youtube.com/watch?v=FfbkPccCOrE&t=25s
+
+
 - Kind HA 3 Nodes Cluster
 - https://github.com/quickbooks2018/kind-nginx-ingress/tree/master
 ```bash
