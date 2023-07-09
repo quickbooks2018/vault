@@ -1,6 +1,7 @@
 # Hashicorp Vault
 
 - Secure EC2 Instance Connect & Instance Tunnel https://www.youtube.com/watch?v=FfbkPccCOrE&t=25s
+- https://github.com/quickbooks2018/aws/blob/master/aws-ec2-connect
 
 
 - Kind HA 3 Nodes Cluster
