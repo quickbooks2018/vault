@@ -508,6 +508,17 @@ kubectl -n vault create secret tls tls-server \
   --cert /mnt/tls/vault.pem \
   --key /mnt/tls/vault-key.pem
 ```
+
+- Create the TLS secret from existing Certs Note: (I changed path from /mnt to tls)
+```bash
+kubectl -n vault create secret tls tls-ca \
+ --cert tls/ca.pem  \
+ --key tls/ca-key.pem
+
+kubectl -n vault create secret tls tls-server \
+  --cert tls/vault.pem \
+  --key tls/vault-key.pem
+```
 - Vault Helm Chart
 
 - https://github.com/hashicorp/vault-helm
