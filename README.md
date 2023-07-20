@@ -400,7 +400,7 @@ openssl x509 -in "${DIR}/"$DOMAIN".crt" -noout -text
 
 ```bash
 #!/bin/bash
-apt-get update && apt-get install -y curl &&
+apt-get update && apt-get install -y curl && \
 curl -L https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssl_1.6.4_linux_amd64 -o /usr/local/bin/cfssl && \
 curl -L https://github.com/cloudflare/cfssl/releases/download/v1.6.4/cfssljson_1.6.4_linux_amd64 -o /usr/local/bin/cfssljson && \
 chmod +x /usr/local/bin/cfssl && \
