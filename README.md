@@ -754,7 +754,7 @@ done
 - issues
 - https://github.com/hashicorp/vault/issues/19952
 
-- Vault & Istio 1.18.1
+- Vault & Istio 1.18.1 (Annoatation required if you want to use Istio with vault)
 ```bash
 vault.hashicorp.com/agent-init-first: 'true'
 ```  
