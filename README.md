@@ -753,3 +753,8 @@ done
 
 - issues
 - https://github.com/hashicorp/vault/issues/19952
+
+- Vault & Istio 1.18.1
+```bash
+vault.hashicorp.com/agent-init-first: 'true'
+```  
